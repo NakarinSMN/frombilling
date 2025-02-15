@@ -1,0 +1,113 @@
+
+.bodymaim{
+  display: flex;
+  align-items: center; /* ถ้าต้องการชิดซ้าย (optional) */
+  justify-content: center; /* ชิดด้านบน */
+  gap: 80px;
+
+}
+
+
+
+
+.containercyc {
+  display: grid;
+  height: 75vh;
+  width: 100%;
+  padding: 0px 40px 40px 30px;
+  background-color: var(--input-bg);
+  border: var( --input-bg-border);
+  border-radius: 15px;
+  box-shadow: var(--input-bg-sha);
+
+}
+
+
+
+
+.resultcyc {
+  background: var(--input-num);
+  width: 100%;
+  margin-left: -2%;
+  box-shadow: var(--btn-top-shadow-hover-label);
+  height: 20px;
+  padding: 10px 10px 10px 15px;
+  color: var(--taxt-color);
+  font-size: 13px;
+  text-align: right;
+  font-weight: 100;
+}
+
+.headcyc {
+  position: relative;
+  display: flex;
+  padding: 5px;
+  font-size: 14px;
+  color: var(--taxt-color);
+  margin-top: 6%;
+}
+
+.labels {
+  position: relative;
+  border-radius: 30px;
+  color: var( --taxt-color);
+  font-size: 14px;
+  font-weight: 400;
+  text-align: right;
+  justify-content: left;
+  display: flex;
+  top: -43px;
+}
+
+
+
+input[type="number"] {
+  font-family: Kanit;
+  text-align: right;
+  font-size: 15px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  color: var(--color);
+  outline: none;
+}
+
+input[type="date"] {
+  font-family: Kanit;
+  font-size: 15px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 10px 0;
+  background-color: transparent;
+  color: var(--color);
+  outline: none;
+}
+
+
+
+
+.button-cyc {
+  color: #eee;
+  padding: 0.3em;
+  font-size: 18px;
+  border-radius: 30em;
+  width: 250px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 20px auto;
+  border: none;
+  background-image: var(--bg-image-a);
+  box-shadow: var(--bg-sha-a);
+  transition-duration: .3s;
+
+}
+
+
+.button-cyc:active {
+  transform: translate(2px, 0px);
+  box-shadow: 0px 1px 0px rgb(255, 113, 113);
+}
+
