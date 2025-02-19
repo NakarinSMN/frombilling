@@ -91,14 +91,42 @@ function displayLocations(data) {
     location.items.forEach((item) => {
       const itemCard = document.createElement("div");
       itemCard.className = "item-card";
-
-      itemCard.innerHTML = `
-        <p>${item.name}</p>
-        <p2>${item.dis}</p2>
+    
+      // สร้าง div แยกให้ปุ่มลูกศรและชื่ออยู่ในแถวเดียวกัน
+      const toggleContainer = document.createElement("div");
+      toggleContainer.className = "toggle-container";
+    
+      const itemName = document.createElement("p");
+      itemName.innerText = item.name;
+    
+      // ปุ่มลูกศรแสดง/ซ่อนรายละเอียด
+      const toggleButton = document.createElement("button");
+      toggleButton.className = "toggle-details";
+      toggleButton.innerText = "▼";
+      toggleButton.addEventListener("click", () => {
+        const details = itemCard.querySelector(".item-details");
+        const isHidden = details.style.display === "none";
+        details.style.display = isHidden ? "block" : "none";
+        toggleButton.innerText = isHidden ? "▲" : "▼";
+      });
+    
+      toggleContainer.appendChild(itemName);
+      toggleContainer.appendChild(toggleButton);
+    
+      // สร้างส่วนรายละเอียดเพิ่มเติม
+      const detailsDiv = document.createElement("div");
+      detailsDiv.className = "item-details";
+      detailsDiv.style.display = "none";
+      detailsDiv.innerHTML = `
+        <p>${item.dis}</p>
         <p>${item.price.toLocaleString()} บาท</p>
       `;
+    
+      itemCard.appendChild(toggleContainer);
+      itemCard.appendChild(detailsDiv);
       itemList.appendChild(itemCard);
     });
+    
 
     locationCard.appendChild(itemList);
     locationsContainer.appendChild(locationCard);
