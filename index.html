@@ -7,12 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
-    <link rel="icon" href="./img/bill.png">
+    <link rel="icon" href="bill.png">
     <title>ฟอร์มออกบิล</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="daystyles.css">
     <link rel="stylesheet" href="database.css">
     <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="card.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/easylogic/jsPDF-Thai@1.0.1/jspdf-Thai.js"></script>
@@ -21,7 +22,7 @@
 
 <body>
 
-    <h2>สถานตรวจสภาพรถเอกชน บังรีท่าอิฐ</h2>
+    <h2>ระบบออบบิล</h2>
 
 
 
@@ -61,6 +62,25 @@
         <div class="body-tabcontentbill">
 
             <div class="tabcontentbill">
+
+                <label for="num1">
+                    <select id="inputcar200" name="cars" class="cars">
+                        <option value="เลือกรายการ">
+                            เลือกสาขา
+                        </option>
+                        <option value="สถานตรวจสภาพรถเอกชน บังรีเซอร์วิส">
+                            บังรีเซอร์วิส
+                        </option>
+                        <option value="สถานตรวจสภาพรถเอกชน บังรีท่าอิฐ">
+                           บังรีท่าอิฐ
+                        </option>
+                        <option value="สถานตรวจสภาพรถเอกชน บังรีบ้านกล้วย">
+                            บังรีบ้านกล้วย
+                        </option>
+                    </select>
+                </label>
+
+
                 <div class="input-container">
                     <label for="input" class="date">วันที่ทำ</label>
                     <input type="date" id="input1" required="">
@@ -8834,6 +8854,23 @@
         <div class="body-tabcontentbill">
 
             <div class="tabcontentbill">
+
+                <label for="num1">
+                    <select id="inputcar300" name="cars" class="cars">
+                        <option value="เลือกรายการ">
+                            เลือกสาขา
+                        </option>
+                        <option value="สถานตรวจสภาพรถเอกชน บังรีเซอร์วิส">
+                            บังรีเซอร์วิส
+                        </option>
+                        <option value="สถานตรวจสภาพรถเอกชน บังรีท่าอิฐ">
+                            บังรีท่าอิฐ
+                        </option>
+                        <option value="สถานตรวจสภาพรถเอกชน บังรีบ้านกล้วย">
+                            บังรีบ้านกล้วย
+                        </option>
+                    </select>
+                </label>
 
                 <div class="input-container">
                     <label for="input" class="date">วันที่ทำ</label>

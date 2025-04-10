@@ -39,6 +39,29 @@ function sentpdfcycle() {
     doc.addFont('THSarabunNew-normal.ttf', 'THSarabunNew', 'normal'); 
     doc.setFont('THSarabunNew'); 
 
+    const branch = document.getElementById("inputcar300").value;
+
+    let addressLine1 = "";
+    let addressLine2 = "";
+    let taxInfo = "";
+    
+    if (branch === "สถานตรวจสภาพรถเอกชน บังรีท่าอิฐ") {
+        addressLine1 = "เลขที่ 91/130 หมู่ 5 ต.บางรักน้อย อ.เมืองนนทบุรี";
+        addressLine2 = "จ.นนทบุรี 11000 โทร 065-893-3571,089-013-3571";
+        taxInfo = "เลขประจำตัวผู้เสียภาษี 3-1204-00299-64-3 (นายวีระ มะเล็งลอย)";
+    } else if (branch === "สถานตรวจสภาพรถเอกชน บังรีบ้านกล้วย") {
+        addressLine1 = "123/4 หมู่ 9 ต.บางเลน อ.บางใหญ่";
+        addressLine2 = "จ.นนทบุรี 11140 โทร 080-000-0000";
+        taxInfo = "เลขประจำตัวผู้เสียภาษี 3-1204-00444-44-3 (นายสมชาย สมดี)";
+    } else if (branch === "สถานตรวจสภาพรถเอกชน บังรีเซอร์วิส") {
+        addressLine1 = "88/8 ซ.ติวานนท์ ต.บางกระสอ อ.เมือง";
+        addressLine2 = "จ.นนทบุรี 11000 โทร 090-111-2222";
+        taxInfo = "เลขประจำตัวผู้เสียภาษี 3-1204-00333-33-3 (นางสาวสุดา สุขใจ)";
+    } else {
+        alert("กรุณาเลือกสาขาให้ถูกต้องก่อนพิมพ์ใบเสร็จ");
+        return;
+    }
+
 
     const number = getNextNumber();
 
@@ -51,15 +74,17 @@ function sentpdfcycle() {
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(0.1);
     doc.line(22, 16, 22, 36);
+
     doc.setFontSize(18);
-    doc.text("สถานตรวจสภาพรถเอกชน บังรี ท่าอิฐ", 25, 20);
+    doc.text(branch, 25, 20);
     doc.setFontSize(12);
-    doc.text("เลขที่ 91/130 หมู่ 5 ต.บางรักน้อย อ.เมืองนนทบุรี", 25, 25);
-    doc.text("จ.นนทบุรี 11000 โทร 065-893-3571,089-013-3571", 25, 30);
-    doc.text("เลขประจำตัวผู้เสียภาษี 3-1204-00299-64-3 (นายวีระ มะเล็งลอย)", 25, 35);
-    doc.setDrawColor(0, 0, 0);
+    doc.text(addressLine1, 25, 25);
+    doc.text(addressLine2, 25, 30);
+    doc.text(taxInfo, 25, 35);
+
+
     doc.setLineWidth(0.1);
-    doc.line(105, 160, 105, 0);
+    doc.line(105, 138, 105, 0);
 
 
 
@@ -173,18 +198,12 @@ function sentpdfcycle() {
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(0.1);
     doc.line(5, 138, 100, 138); 
-    doc.addImage(imageUrllineadd, 'PNG', 4, 138.5,  16, 16);
     doc.setFontSize(12);
     doc.text(`ผู้รับเงิน:`, 5, 135);
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(0.1);
     doc.line(15, 135, 48, 135);
-    doc.text("ติดต่อสาขา โทร.095-841-0423", 22, 145);
-    doc.text("หรือแอดไลน์ด้วยเบอร์ 095-841-0423 หรือแสกนผ่าน QRCode", 22, 150);
-    doc.setDrawColor(0, 0, 0);
-    doc.setLineWidth(0.1);
-    doc.line(5, 155, 100, 155);
-
+   
 
 
 
@@ -203,11 +222,11 @@ function sentpdfcycle() {
     doc.line(130, 16, 130, 36);
     doc.addImage(imageUrlback, 'PNG', 108.5, 16,  20, 20);
     doc.setFontSize(18);
-    doc.text("สถานตรวจสภาพรถเอกชน บังรี ท่าอิฐ", 133, 20);
-    doc.setFontSize(12);
-    doc.text("เลขที่ 91/130 หมู่ 5 ต.บางรักน้อย อ.เมืองนนทบุรี", 133, 25);
-    doc.text("จ.นนทบุรี 11000 โทร 065-893-3571,089-013-3571", 133, 30);
-    doc.text("เลขประจำตัวผู้เสียภาษี 3-1204-00299-64-3 (นายวีระ มะเล็งลอย)", 133, 35);
+    doc.text(branch, 133, 20);
+    doc.setFontSize(12);    
+    doc.text(addressLine1, 133, 25);
+    doc.text(addressLine2, 133, 30);
+    doc.text(taxInfo, 133, 35);
   
 
     doc.setDrawColor(0, 0, 0);
@@ -298,21 +317,11 @@ function sentpdfcycle() {
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(0.1);
     doc.line(120, 135, 153, 135); 
-    doc.addImage(imageUrllineadd, 'PNG', 112, 138.5,  16, 16);
     doc.setFontSize(12);
     doc.text(`ผู้รับเงิน:`, 110, 135);
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(0.1);
-    doc.line(110, 138, 205, 138);
-    doc.text("ติดต่อสาขา โทร.095-841-0423", 130, 145);
-    doc.text("หรือแอดไลน์ด้วยเบอร์ 095-841-0423 หรือแสกนผ่าน QRCode", 130, 150);
-    doc.setDrawColor(0, 0, 0);
-    doc.setLineWidth(0.1);
-    doc.line(110, 155, 205, 155);
-
-    doc.setDrawColor(0, 0, 0);
-    doc.setLineWidth(0.1);
-    doc.line(0, 160, 250, 160);
+    doc.line(0, 138, 250, 138);
 
 
 

@@ -27,7 +27,7 @@
     font-size: 15px;
     margin: 8px;
     border-radius: 15px;
-    font-family: kanit;
+  
     color: var(--color);
     background: var(--ds-tab-bg-btn);
     opacity: 70%;
@@ -139,7 +139,7 @@ p {
 }
 
 .ds-search-btn {
-    font-family: Kanit;
+  
     font-size: 15px;
     width: 20%;
     border: none;
@@ -187,7 +187,7 @@ p {
     opacity: 0;
     background-color: var(--ds-too-bg);
     color: var(--ds-too-color);
-    font-family: Kanit;
+  
     padding: 5px 10px;
     border-radius: 5px;
     display: flex;
@@ -224,7 +224,7 @@ p {
     opacity: 0;
     background-color: var(--ds-too-bg);
     color: var(--ds-too-color);
-    font-family: Kanit;
+  
     padding: 5px 10px;
     border-radius: 5px;
     display: flex;
@@ -285,7 +285,7 @@ p {
 
 
 .Search-btn {
-    font-family: kanit;
+  
     font-size: 14px;
     background: linear-gradient(to bottom, #4dc7d9 0%, #66a6ff 100%);
     color: white;

@@ -1,33 +1,41 @@
-
-.bodymaim{
+.bodymaim {
   display: flex;
-  align-items: center; /* ถ้าต้องการชิดซ้าย (optional) */
-  justify-content: center; /* ชิดด้านบน */
-  gap: 80px;
-
+  flex-wrap: wrap;                /* ✅ ให้สามารถขึ้นแถวใหม่ได้ */
+  justify-content: center;        /* ✅ ตรงกลางแนวนอน */
+  gap: 20px;                      /* ✅ ระยะห่างระหว่างกล่อง */
+  padding: 20px;
+  background-color: var(--bg-color); 
+  max-height: 700px;    
+  overflow-y: auto;           
+  border-radius: 20px;
 }
 
 
 
-
+/* ✅ ปรับขนาดกล่องให้เหมาะกับหลายจอ */
 .containercyc {
-  display: grid;
-  height: 75vh;
-  width: 100%;
-  padding: 0px 40px 40px 30px;
+  flex: 1 1 calc(45% - 20px);     /* ✅ 2 กล่องต่อแถวในจอใหญ่ */
+  max-width: 500px;               /* ✅ จำกัดขนาดไม่ให้เกิน */
+  min-width: 280px;               /* ✅ รองรับจอเล็ก */
+  min-height: 780px;    
+  height: auto;                /* ✅ ความสูงของกล่อง */
+  padding: 30px;
   background-color: var(--input-bg);
-  border: var( --input-bg-border);
+  border: var(--input-bg-border);
   border-radius: 15px;
   box-shadow: var(--input-bg-sha);
-
 }
 
 
-
+@media screen and (max-width: 768px) {
+  .containercyc {
+    flex: 1 1 100%;       /* ✅ เต็มแถวเดียวในจอแคบ */
+    max-width: 100%;
+  }
+}
 
 .resultcyc {
   background: var(--input-num);
-  width: 100%;
   margin-left: -2%;
   box-shadow: var(--btn-top-shadow-hover-label);
   height: 20px;
@@ -62,7 +70,7 @@
 
 
 input[type="number"] {
-  font-family: Kanit;
+
   text-align: right;
   font-size: 15px;
   width: 100%;
@@ -75,7 +83,7 @@ input[type="number"] {
 }
 
 input[type="date"] {
-  font-family: Kanit;
+
   font-size: 15px;
   width: 100%;
   border: none;

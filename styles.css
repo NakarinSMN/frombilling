@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+
+* {
+  font-family: 'Kanit', sans-serif;
+}
+
 body {
-  font-family: Kanit;
   justify-content: center;
   align-items: center;
   background-color: var(--bg-main);
@@ -112,7 +117,6 @@ h2 {
   transition: 0.3s;
   font-size: 15px;
   border-radius: 15px 15px 0px 0px;
-  font-family: kanit;
   color: var(--color);
   background: #00000000;
   transition: .5s;
@@ -131,7 +135,8 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-  flex-basis: 200;
+  flex-basis: auto;
+  width: auto;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -140,52 +145,76 @@ h2 {
   border: var(--input-bg-border);
   border-radius: 20px;
   padding: 30px;
-
+  
 }
 
 .tabcontentbill {
-  display: flex;
-  flex-wrap: wrap;
-  grid-template-columns: repeat(3, 50%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   padding: 35px;
-  max-width: 60vh;
   min-height: 65vh;
   justify-content: center;
   align-items: center;
-
 }
 
-.tabcontentbilla {
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .tabcontentbill {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .tabcontentbill {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+
+/* Wrap the two sections in a flex container */
+.container-tabcontents {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 18.5px;
   padding: 35px;
-  max-width: 25vh;
   min-height: 65vh;
-  justify-content: center;
-  align-items: center;
-
 }
 
+/* Section A on the left and Section B on the right converted into a single column */
+.tabcontentbilla{
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 20px;
+ 
+}
 
 .tabcontentbillb {
-  display: flex;
-  flex-wrap: wrap;
-  grid-template-columns: repeat(1, 50%);
-  gap: 18.5px;
-  padding: 35px;
-  max-width: 25vh;
-  min-height: 65vh;
-  justify-content: center;
+  flex: 1;
+  display: grid;
+  max-width: 300px;
+  grid-template-columns: 1fr;
   align-items: center;
-
+  justify-content: center;
+  gap: 20px;
+  border-left: solid 1px#ccc;
+  border-right: solid 1px#ccc;
 }
 
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .tabcontentbilla,
+  .tabcontentbillb {
+    padding: 20px;
+  }
+}
 
 .tabcontent {
   display: none;
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
   border-top: none;
   text-align: center;
   background: var(--bg-sub);
@@ -195,22 +224,27 @@ h2 {
 
 .input-container {
   position: relative;
-  margin: 10px auto;
-  width: 200px;
+  margin: 15px auto;
+  width: 250px;
 }
 
 .cars {
-  font-family: Kanit;
   font-size: 13px;
   width: 100%;
   border: none;
   border-bottom: 2px solid #ccc;
-  padding: 10px;
+  padding: 5px 0;
   background-color: transparent;
   background-repeat: no-repeat;
   color: var(--color);
+  margin-top: -15px;
   outline: none;
   cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.cars:hover {
+  border-bottom-color: var(--color);
 }
 
 option {
@@ -222,10 +256,8 @@ option {
 }
 
 
-
-
 .input-container input[type="text"] {
-  font-family: Kanit;
+
   font-size: 13px;
   width: 100%;
   border: none;
@@ -236,9 +268,8 @@ option {
   outline: none;
 }
 
-
 .input-container input[type="number"] {
-  font-family: Kanit;
+
   text-align: right;
   font-size: 13px;
   width: 100%;
@@ -251,10 +282,10 @@ option {
 }
 
 .input-container input[type="date"] {
-  font-family: Kanit;
   font-size: 13px;
   width: 100%;
   border: none;
+  margin-top: 5px;
   border-bottom: 2px solid #ccc;
   padding: 5px 0;
   background-color: transparent;
@@ -263,9 +294,9 @@ option {
 }
 
 .input-container input[type="datetime-local"] {
-  font-family: Kanit;
   font-size: 13px;
   width: 100%;
+  margin-top: 5px;
   border: none;
   border-bottom: 2px solid #ccc;
   padding: 5px 0;
@@ -321,7 +352,6 @@ input::-webkit-inner-spin-button {
 
 
 .button {
-  font-family: Kanit;
   width: 180px;
   height: 40px;
   background-image: var(--bg-image);
@@ -329,13 +359,7 @@ input::-webkit-inner-spin-button {
   border-radius: 50px;
   color: #eee;
   font-weight: 400;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 3%;
-  margin-left: 3%;
-  gap: 5px;
-  cursor: pointer;
+  margin: 5% auto 0;
   box-shadow: var(--bg-sha);
   transition-duration: .3s;
 }
@@ -356,9 +380,7 @@ input::-webkit-inner-spin-button {
 }
 
 
-
 .button-pdf {
-  font-family: Kanit;
   width: 180px;
   height: 40px;
   background-image: var(--bg-image-a);
@@ -366,44 +388,29 @@ input::-webkit-inner-spin-button {
   border-radius: 50px;
   color: #eee;
   font-weight: 400;
+  margin: 5% auto 0;
+  box-shadow: var(--bg-sha-a);
+  transition-duration: .3s;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5%;
-  margin-left: 11%;
   gap: 5px;
   cursor: pointer;
-  box-shadow: var(--bg-sha-a);
-  transition-duration: .3s;
 }
 
 
 .button-sumg {
-  font-family: Kanit;
-  width: 40px;
+  width: 180px;
   height: 40px;
   background-image: var(--bg-image-b);
   border: none;
   border-radius: 50px;
   color: #eee;
   font-weight: 400;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 5%;
-  gap: 5px;
-  cursor: pointer;
   box-shadow: var(--bg-sha-b);
-  transition-duration: .3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.sumg-container {
-
-  display: grid;
-  grid-template-columns: repeat(2, 2fr);
-  gap: 8px;
-
-}
 
 .cartIcon {
   width: 14px;
@@ -536,7 +543,7 @@ input::-webkit-inner-spin-button {
 }
 
 .edit-button::before {
-  font-family: Kanit;
+
   display: none;
   content: "Logout";
   color: var(--color);
@@ -650,6 +657,7 @@ input::-webkit-inner-spin-button {
   width: 100%;
   padding: 10px;
   font-size: 16px;
+  margin-top: 6px;
   border: var(--input-bg-border);
 }
 
